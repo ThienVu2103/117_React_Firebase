@@ -10,8 +10,16 @@ var config = {
 
 export const firebaseConnect = firebase.initializeApp(config);
 
-var data = firebase.database().ref('');
-
-data.once('value').then(function(snapshot) {
-    console.log(snapshot.val())
+// GET VALUE
+var data = firebase.database().ref('/DataForNote/'); // referance to DB in firebase
+data.once('value').then((snapshot) => { 
+    // console.log(snapshot.val())
 })
+
+// EDIT VALUE
+var data = firebase.database().ref('/DataForNote/note2');
+data.set({
+    id: 1,
+    title: "09-09-1199"
+})
+
